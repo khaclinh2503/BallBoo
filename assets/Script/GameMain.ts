@@ -60,7 +60,7 @@ export default class NewClass extends cc.Component {
             //create ball in this.barBall.width/2
         });
          this.node.on(cc.Node.EventType.MOUSE_MOVE,(e:cc.Event.EventMouse)=>{
-            this.updatePosition(e.getLocation())  
+            // this.updatePosition(e.getLocation())  
         });
          this.node.on(cc.Node.EventType.MOUSE_UP,(e:cc.Event.EventMouse)=>{
         }); 

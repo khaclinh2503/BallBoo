@@ -76,7 +76,7 @@
     "_level": 1,
     "_components": [
       {
-        "__id__": 10
+        "__id__": 12
       }
     ],
     "_prefab": null,
@@ -219,7 +219,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "bg",
+    "_name": "cannon",
     "_objFlags": 0,
     "_parent": {
       "__id__": 2
@@ -227,16 +227,19 @@
     "_children": [
       {
         "__id__": 6
+      },
+      {
+        "__id__": 8
       }
     ],
     "_active": true,
     "_level": 2,
     "_components": [
       {
-        "__id__": 8
+        "__id__": 10
       },
       {
-        "__id__": 9
+        "__id__": 11
       }
     ],
     "_prefab": null,
@@ -371,6 +374,93 @@
     "_id": "1fkB897uFN4YUI5AkdETzk"
   },
   {
+    "__type__": "cc.Node",
+    "_name": "gunBall",
+    "_objFlags": 0,
+    "_parent": {
+      "__id__": 5
+    },
+    "_children": [],
+    "_active": true,
+    "_level": 3,
+    "_components": [
+      {
+        "__id__": 9
+      }
+    ],
+    "_prefab": null,
+    "_opacity": 255,
+    "_color": {
+      "__type__": "cc.Color",
+      "r": 255,
+      "g": 255,
+      "b": 255,
+      "a": 255
+    },
+    "_contentSize": {
+      "__type__": "cc.Size",
+      "width": 31,
+      "height": 31
+    },
+    "_anchorPoint": {
+      "__type__": "cc.Vec2",
+      "x": 0.5,
+      "y": 0.5
+    },
+    "_position": {
+      "__type__": "cc.Vec3",
+      "x": 145.986,
+      "y": 64.5,
+      "z": 0
+    },
+    "_scale": {
+      "__type__": "cc.Vec3",
+      "x": 1,
+      "y": 1,
+      "z": 1
+    },
+    "_quat": {
+      "__type__": "cc.Quat",
+      "x": 0,
+      "y": 0,
+      "z": 0,
+      "w": 1
+    },
+    "_skewX": 0,
+    "_skewY": 0,
+    "_is3DNode": false,
+    "groupIndex": 0,
+    "_id": "adkfwCH11CXL0ruKOqOr5p"
+  },
+  {
+    "__type__": "cc.Sprite",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 8
+    },
+    "_enabled": true,
+    "_materials": [],
+    "_srcBlendFactor": 770,
+    "_dstBlendFactor": 771,
+    "_spriteFrame": {
+      "__uuid__": "df506e24-5e5a-4751-a302-ee0fc933efc8"
+    },
+    "_type": 0,
+    "_sizeMode": 1,
+    "_fillType": 0,
+    "_fillCenter": {
+      "__type__": "cc.Vec2",
+      "x": 0,
+      "y": 0
+    },
+    "_fillStart": 0,
+    "_fillRange": 0,
+    "_isTrimmedMode": true,
+    "_atlas": null,
+    "_id": "54lIIA0eVKwaC2846O2WTY"
+  },
+  {
     "__type__": "cc.Sprite",
     "_name": "",
     "_objFlags": 0,
@@ -399,18 +489,20 @@
     "_id": "0bb7rclddO75m2cfCx+p5z"
   },
   {
-    "__type__": "b69c1XsuTJCmp0/CEOuAXEZ",
+    "__type__": "a4afaw0YHxM6Z8mTHykgj+l",
     "_name": "",
     "_objFlags": 0,
     "node": {
       "__id__": 5
     },
     "_enabled": true,
-    "label": null,
-    "barBall": null,
-    "text": "hello",
-    "ball": null,
-    "_id": "bbT7WHs0FMFLTjFBxuIvWr"
+    "gunBall": {
+      "__id__": 8
+    },
+    "angle": 0,
+    "leftMaxAngle": -90,
+    "rightMaxAngle": 90,
+    "_id": "a3kGrQ7PtGGZQ7sdfsm0TF"
   },
   {
     "__type__": "cc.Canvas",

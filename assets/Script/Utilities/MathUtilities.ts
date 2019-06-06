@@ -8,24 +8,10 @@
 //  - [Chinese] https://docs.cocos.com/creator/manual/zh/scripting/life-cycle-callbacks.html
 //  - [English] http://www.cocos2d-x.org/docs/creator/manual/en/scripting/life-cycle-callbacks.html
 
-const {ccclass, property} = cc._decorator;
+const { cos, sin, PI } = Math
 
-@ccclass
-export default class NewClass extends cc.Component {
+export const clamp = (val, min, max) => val < min ? min : val > max ? max : val;
+const rad = deg => deg * PI / 180;
+export const cosd = deg => cos(rad(deg));
+export const sind = deg => sin(rad(deg));
 
-    @property(cc.Label)
-    label: cc.Label = null;
-
-    @property
-    text: string = 'hello';
-
-    // LIFE-CYCLE CALLBACKS:
-
-    // onLoad () {}
-
-    start () {
-
-    }
-
-    // update (dt) {}
-}
