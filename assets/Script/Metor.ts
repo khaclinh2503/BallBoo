@@ -17,8 +17,8 @@ export default class Metor extends cc.Component {
     timeAlive = 0
     speed:number = 100;
     angle:number = 0;
-    @property (cc.Node) // 1
-    metor: cc.Node = null
+    type:number = 1;
+
 
     // LIFE-CYCLE CALLBACKS:
 
@@ -26,10 +26,15 @@ export default class Metor extends cc.Component {
         this.angle = angle;
     }
 
-    // onLoad () {}
+    onLoad () {
+        this.node.getComponent(cc.BoxCollider).enabled = true;
+    }
 
     start () {
+        this.setAvatarMetor();
+    }
 
+    setAvatarMetor(){
     }
 
     update (dt) {
@@ -43,16 +48,36 @@ export default class Metor extends cc.Component {
     }
     checkDetroy(){
         var size = cc.winSize;
-        if(this.node.y-this.metor.height/2<-size.height/2){
+        if(this.node.y-this.node.height/2<-size.height/2){
             this.node.destroy()
             return false
         }
         return true;
     }
     getHeight(){
-        return this.metor.height;
+        return this.node.height;
     }
     getWidth(){
-        return this.metor.width;
+        return this.node.width;
+    }
+
+    onCollisionEnter (other) {
+        this.node.color = cc.Color.RED;
+        cc.log("onCollisionEnter")
+    }
+    
+    onCollisionStay (other) {
+        console.log('on collision stay');
+    }
+    
+    onCollisionExit () {
+        cc.log("onCollisionExit")
+
+    }
+    onBeginContact(contact, selfCollider, otherCollider) {
+        if (otherCollider.node.name === "Ball") {
+            selfCollider.node.destroy()
+            // otherCollider.node.destroy()
+        }
     }
 }

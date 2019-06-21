@@ -32,12 +32,15 @@ export default class Game extends cc.Component {
         const newBall = cc.instantiate(this.ball) // 1
         newBall.setPosition(position) // 2
 
-        // const body = newBall.getComponent(cc.RigidBody) // 3
         newBall.getComponent("Ball").setAngle(angle);
         newBall.getComponent("Ball").setSpeed(velocity)
         this.node.addChild(newBall) // 4
     }
-    // onLoad () {}
+    onLoad () {
+        cc.director.getCollisionManager().enabled = true;
+        cc.director.getCollisionManager().enabledDebugDraw = true;
+        cc.director.getCollisionManager().enabledDrawBoundingBox = true;
+    }
 
     start () {
         this.hookInput();
@@ -76,7 +79,6 @@ export default class Game extends cc.Component {
         const metor = cc.instantiate(this.metor);
         var widthMetor = metor.getComponent("Metor").getWidth();
         var heightMetor = metor.getComponent("Metor").getHeight();
-        cc.log("createMetor",-cc.winSize.width/2+widthMetor/2,cc.winSize.width/2-widthMetor/2)
         var x = this.randInRange(-cc.winSize.width/2+widthMetor/2,cc.winSize.width/2-widthMetor/2);
         metor.setPosition(cc.v2(x,cc.winSize.height/2+heightMetor/2));
         this.node.addChild(metor);
@@ -89,4 +91,5 @@ export default class Game extends cc.Component {
         return Math.random() * (max - min) + min;
     }
     // update (dt) {}
+
 }

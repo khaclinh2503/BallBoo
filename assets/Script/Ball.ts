@@ -18,12 +18,13 @@ export default class Ball extends cc.Component {
     timeAlive = 0
     speed:number = 500;
     angle:number = 0;
-    @property (cc.Node) // 1
-    ball: cc.Node = null
 
+    
+    onLoad(){
+        this.node.getComponent(cc.CircleCollider).enabled = true;
+    }
     setAngle(angle:number){
         this.angle = angle;
-        cc.log("setAngle",this.angle*180/Math.PI)
     }
     setSpeed(speed:number){
         this.speed = speed;
@@ -32,24 +33,22 @@ export default class Ball extends cc.Component {
         if (!cc.isValid(this.node)) return
         if(this.checkDetroy())
             this.updatePosition(dt);
-
     }
     updatePosition(dt:number){
         var pos = this.node.getPosition();
         this.node.x = pos.x+dt*this.speed*Math.cos(this.angle);
         this.node.y = pos.y+dt*this.speed*Math.sin(this.angle);
-
     }
     checkDetroy(){
         var size = cc.winSize;
-        var posBall = this.node.getPosition();
-        if(posBall.y+this.ball.width/2>size.height/2){
+        var posnode = this.node.getPosition();
+        if(posnode.y+this.node.width/2>size.height/2){
             this.setAngle(-this.angle);
         }
-        if(posBall.x+this.ball.width/2>size.width/2){
+        if(posnode.x+this.node.width/2>size.width/2){
             this.setAngle(Math.PI - this.angle)
         }
-        if(posBall.x-this.ball.width/2<-size.width/2){
+        if(posnode.x-this.node.width/2<-size.width/2){
             this.setAngle(Math.PI - this.angle)
         }
         if(Math.abs(this.node.x)>size.width/2||Math.abs(this.node.y)>size.height/2){
@@ -58,4 +57,5 @@ export default class Ball extends cc.Component {
         }
         return true;
     }
+
 }
